@@ -1,6 +1,33 @@
 const scriptProperties = PropertiesService.getScriptProperties();
 const ACCESS_TOKEN = scriptProperties.getProperty('ACCESS_TOKEN');
 
+const startList = {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "ゲームスタート",
+          "text": "スタート"
+        }
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "色が見えにくい方はこちら",
+          "text": "cスタート"
+        }
+      }
+    ],
+    "paddingAll": "0px"
+  }
+};
+
 function doPost(e){
   var event = JSON.parse(e.postData.contents).events[0];
   if(event.type === "follow"){
@@ -18,9 +45,16 @@ function doPost(e){
           var messages = getFlexMessage("お試しのヒントを見る", "お試しヒント");
           break;
         case "お試しヒント":
-          var messages = getFlexMessage("ゲームスタート", "スタート");
+          var messages = [{
+            'type':'flex',
+            'altText':'スタート',
+            'contents':startList
+          }];
           break;
         case "スタート":
+          var messages = getFlexMessage("Q1のヒントを見る", "ヒント1");
+          break;
+        case "cスタート":
           var messages = getFlexMessage("Q1のヒントを見る", "ヒント1");
           break;
         case "うらじ":
