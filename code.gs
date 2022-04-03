@@ -11,7 +11,7 @@ const startList = {
         "type": "button",
         "action": {
           "type": "message",
-          "label": "ゲームスタート",
+          "label": "ゲームスタート(通常ver)",
           "text": "スタート"
         }
       },
@@ -19,7 +19,7 @@ const startList = {
         "type": "button",
         "action": {
           "type": "message",
-          "label": "色が見えにくい方はこちら",
+          "label": "ゲームスタート(色対応ver)",
           "text": "cスタート"
         }
       }
@@ -52,39 +52,47 @@ function doPost(e){
           }];
           break;
         case "スタート":
-          var messages = getFlexMessage("Q1のヒントを見る", "ヒント1");
-          break;
         case "cスタート":
           var messages = getFlexMessage("Q1のヒントを見る", "ヒント1");
           break;
         case "うらじ":
+        case "cうらじ":
           var messages = getFlexMessage("Q2のヒントを見る", "ヒント2");
           break;
         case "りゅう":
+        case "cりゅう":
           var messages = getFlexMessage("Q3のヒントを見る", "ヒント3");
           break;
         case "くろう":
+        case "cくろう":
           var messages = getFlexMessage("Q4のヒントを見る", "ヒント4");
           break;
         case "じじつ":
+        case "cじじつ":
           var messages = getFlexMessage("Q5のヒントを見る", "ヒント5");
           break;
         case "じゅうじ":
+        case "cじゅうじ":
           var messages = getFlexMessage("Q6のヒントを見る", "ヒント6");
           break;
         case "ひと":
+        case "cひと":
           var messages = getFlexMessage("Q7のヒントを見る", "ヒント7");
           break;
         case "にじ":
+        case "cにじ":
           var messages = getFlexMessage("Q8のヒントを見る", "ヒント8");
           break;
         case "つみき":
+        case "cつみき":
           var messages = getFlexMessage("Q9のヒントを見る", "ヒント9");
           break;
         case "くじ":
+        case "cくじ":
           var messages = getFlexMessage("Q10のヒントを見る", "ヒント10");
           break;
         case "よめ":
+        case "cよめ":
           var messages = getFlexMessage("最終問題のヒントを見る", "ラストヒント");
           break;
       }
