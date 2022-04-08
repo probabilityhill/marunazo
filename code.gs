@@ -29,7 +29,13 @@ const startList = {
 };
 
 function doPost(e){
-  var event = JSON.parse(e.postData.contents).events[0];
+  const events = JSON.parse(e.postData.contents).events;
+  for (var i = 0; i < events.length; i++){
+    execute(events[i]);
+  }
+}
+
+function execute(event){
   if(event.type === "follow"){
     var reply_token = event.replyToken;
     var messages = getFlexMessage("注意事項を読む", "注意事項");
